@@ -9,10 +9,6 @@ struct THash{
     int tabela[TSIZE];
 };
 
-int chaveDivisao(int chave, int i = 0){
-    return chave % (TSIZE-i);
-}
-
 int sondagemLinear(int i, int posicao){
     return (posicao + i) % TSIZE;
 }
@@ -25,10 +21,6 @@ int sondagemQuadraticaLivro(int i, int posicao){
     return (posicao + (int( pow(-1, i)) * int (pow((i+1)/2, 2)))) % TSIZE;    
 }
 
-/*int duploHash(int H1, int i){
-    return (H1 + (i*(H1+1))) % TSIZE;
-}*/
-
 int h1(int chave){
     return chave % TSIZE;
 }
@@ -38,6 +30,7 @@ int hashSalto(int chave){
     return chave % 2 == 0 ? chave+1 : chave;
 }
 
+//Duplo hash
 int h2(int chave, int i){
     return (h1(chave) + hashSalto(chave)*i) % TSIZE;
 }
