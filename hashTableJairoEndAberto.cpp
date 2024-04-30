@@ -26,7 +26,7 @@ int h1(int chave){
 }
 
 int hashSalto(int chave){
-    int x = chave*2 % 11;
+    //int x = chave*2 % 11;
     return chave % 2 == 0 ? chave+1 : chave;
 }
 
