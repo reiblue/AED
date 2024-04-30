@@ -101,8 +101,6 @@ int main(){
 
     int val = 0;
 
-    int v = int(35.555);
-
     do{
         cout << "Digite o valor para inserir: ";
         cin >> val;
