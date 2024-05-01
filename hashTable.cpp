@@ -12,11 +12,19 @@ struct hashTable{
     aluno **itens;
 };
 
+struct ha{
+    int item[15];
+    int TABLE_SIZE = 15;
+};
+
 struct Hash{
     int qtd, TABLE_SIZE;
     struct aluno **itens;
 };
 
+/// @brief Hash perfeito
+/// @param k 
+/// @return 
 int h(int k){
     return (int(log2(k-1)))%15;
 }
@@ -44,17 +52,17 @@ int chaveDivisao(int chave, int TABLE_SIZE){
 // Insere e busca com tratamento de colisão: Endereçamento Aberto
 //==============================================
 int sondagemLinear(int pos, int i, int TABLE_SIZE){
-    return ((pos + i) & 0x7FFFFFFF) % TABLE_SIZE;
+    return ((pos + i)) % TABLE_SIZE;
 }
 
 int sondagemQuadratica(int pos, int i, int TABLE_SIZE){
     pos = pos + 2*i + 5*i*i;// hash + (c1 * i) + (c2 * i^2)
-    return (pos & 0x7FFFFFFF) % TABLE_SIZE;
+    return (pos) % TABLE_SIZE;
 }
 
 int duploHash(int H1, int chave, int i, int TABLE_SIZE){
     int H2 = chaveDivisao(chave,TABLE_SIZE-1) + 1;
-    return ((H1 + i*H2) & 0x7FFFFFFF) % TABLE_SIZE;
+    return ((H1 + i*H2)) % TABLE_SIZE;
 }
 
 
@@ -71,10 +79,10 @@ int insereHash_EnderAberto(Hash* ha, int chave){
     for(i=0; i < ha->TABLE_SIZE; i++){
         //newPos = sondagemLinear(pos,i,ha->TABLE_SIZE);
         //newPos = sondagemQuadratica(pos,i,ha->TABLE_SIZE);
-        //newPos = duploHash(pos,chave,i,ha->TABLE_SIZE);
+        newPos = duploHash(pos,chave,i,ha->TABLE_SIZE);
 
         //função de hash perfeita
-        newPos = h(chave);
+        //newPos = h(chave);
 
         if(ha->itens[newPos] == NULL){
             aluno* novo;
@@ -120,7 +128,15 @@ int main(){
 
 
 
-    for(int i = 0; i < h->TABLE_SIZE; i++)
+    /*for(int i = 0; i < h->TABLE_SIZE; i++)
+        if(h->itens[i] != nullptr)
+            cout << "tabela[" << i << "]: " << h->itens[i]->chave << endl;*/
+
+
+    ha h2;
+
+    //imprime hash perfeito
+    for(int i = 0; i < h2.TABLE_SIZE; i++)
         if(h->itens[i] != nullptr)
             cout << "tabela[" << i << "]: " << h->itens[i]->chave << endl;
 
