@@ -432,15 +432,15 @@ public class Program
 
         bst.PrintTree();
 
-        Console.WriteLine("\nSearching for 'mango': " + bst.Search("mango"));
-        Console.WriteLine("Searching for 'orange': " + bst.Search("orange"));
+        Console.WriteLine("\nProcurando por 'goiaba': " + bst.Search("goiaba"));
+        Console.WriteLine("\nProcurando por 'limão': " + bst.Search("limão"));
+
+        Console.WriteLine("\nDeleting 'maça'");
+        bst.DeleteNode("maça");
+        bst.PrintTree();
 
         Console.WriteLine("\nDeleting 'banana'");
         bst.DeleteNode("banana");
-        bst.PrintTree();
-
-        Console.WriteLine("\nDeleting 'apple'");
-        bst.DeleteNode("apple");
         bst.PrintTree();
     }
 }

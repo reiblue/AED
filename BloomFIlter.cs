@@ -84,9 +84,22 @@ public class Program
 
         bloomFilter.Visualize();
 
-        Console.WriteLine(bloomFilter.Search("apple")); // True
-        Console.WriteLine(bloomFilter.Search("banana")); // True
-        Console.WriteLine(bloomFilter.Search("grape")); // True
-        Console.WriteLine(bloomFilter.Search("unknown")); // False (provavelmente)
+        Console.WriteLine(bloomFilter.Search("goiaba")); 
+        Console.WriteLine(bloomFilter.Search("limão")); 
+		
+		
+		//Deleting 'banana'
+		var bloomFilter = new BloomFilter(25, 2);
+
+        string[] fruitDelecao = {
+                    "caqui", "abacate",
+                    "abacaxi", "figo", "goiaba", "laranja",
+                    "marmelo", "pera", "melancia" };
+
+        foreach (var item in items){
+            bloomFilter.Insert(item);
+        }
+		
+		
     }
 }

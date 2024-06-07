@@ -210,19 +210,22 @@ public class Program
         {
             trie.Insert(fruit);
         }
-        Console.WriteLine(trie.Search("cherry")); // True
-        Console.WriteLine(trie.Search("plum")); // True
-        Console.WriteLine(trie.Search("tex")); // False
-        Console.WriteLine(trie.StartsWith("ap")); // True
+		
+        Console.WriteLine(trie.Search("goiaba"));
+        Console.WriteLine(trie.Search("limão")); 
+        
 
         Console.WriteLine("\nÁrvore Patrícia:");
         trie.Print();
 
 
-        Console.WriteLine("\nDeletando 'apricot':");
-        trie.Delete("apricot");
+        Console.WriteLine("\nDeletando 'maça':");
+        trie.Delete("maça");
         trie.Print();
-
+		
+		Console.WriteLine("\nDeletando 'banana':");
+        trie.Delete("banana");
+		trie.Print();
 
 
 
