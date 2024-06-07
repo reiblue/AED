@@ -67,7 +67,7 @@ public class BloomFilter
     }
 }
 
-public class BloomFilterExample
+public class Program
 {
     public static void Main(string[] args)
     {
